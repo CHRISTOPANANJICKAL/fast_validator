@@ -1,0 +1,22 @@
+name: fast_validator
+description: "A flutter package to validate text fields, date fields or any data fastly. Includes built in commonly used validators. You can also add custom validators for your needs."
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+  dart_code_metrics: ^5.7.6
+
+
+
+flutter:
+  uses-material-design: true

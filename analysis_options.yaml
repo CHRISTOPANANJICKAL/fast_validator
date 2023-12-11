@@ -1,0 +1,74 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    avoid_empty_else: true
+    avoid_types_as_parameter_names: true
+    comment_references: true
+    prefer_single_quotes: true
+    prefer_expression_function_bodies: false
+    prefer_final_in_for_each: true
+    prefer_if_elements_to_conditional_expressions: true
+analyzer:
+  exclude:
+    - '**/*.g.dart'
+    - '**/*.gr.dart'
+    - '**/*.freezed.dart'
+  plugins:
+    - dart_code_metrics
+
+dart_code_metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    source-lines-of-code: 320
+    number-of-parameters: 5
+    maximum-nesting-level: 5
+    technical-debt:
+      ignore-cost: 320
+      ignore-for-file-cost: 396
+  metrics-exclude:
+    - test/**
+    - lib/gen/assets.gen.dart
+
+  rules:
+    - avoid-global-state:
+        severity: warning
+    - newline-before-return:
+        severity: style
+    - no-boolean-literal-compare:
+        severity: style
+    - avoid-nested-conditional-expressions:
+        acceptable-level: 4
+    - avoid-unnecessary-type-assertions:
+        severity: style
+    - avoid-unnecessary-type-casts:
+        severity: style
+    - prefer-commenting-analyzer-ignores:
+        severity: style
+    - always-remove-listener:
+        severity: error
+    - no-empty-block:
+        severity: style
+    - prefer-trailing-comma:
+        severity: style
+    - prefer-conditional-expressions:
+        severity: style
+    - no-equal-then-else:
+        severity: performance
+    - avoid-returning-widgets:
+        severity: style
+    - avoid-unnecessary-setstate:
+        severity: warning
+    - avoid-wrapping-in-padding:
+        severity: performance
+    - prefer-const-border-radius:
+        severity: performance
+    - prefer-extracting-callbacks:
+        severity: style
+    - prefer-single-widget-per-file:
+        severity: style
+        ignore-private-widgets: true
+
+  anti-patterns:
+    - long-method
+    - long-parameter-list

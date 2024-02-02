@@ -478,7 +478,7 @@ class FastRegexValidation implements FastValidation {
   }
 }
 
-/// [FastPasswordValidation] is used to validate a password field.
+/// [FastPasswordValidation] is used to validate a password field
 class FastPasswordValidation implements FastValidation {
   final int minLength;
   final bool uppercase;
@@ -605,7 +605,7 @@ class FastPasswordValidation implements FastValidation {
   }
 }
 
-/// [FastDateValidation] is used to validate a date field.
+/// [FastDateValidation] is used to validate a date field
 class FastDateValidation implements FastValidation {
   DateTime? minimumDate;
   DateTime? maximumDate;
@@ -693,7 +693,7 @@ class FastDateValidation implements FastValidation {
   }
 }
 
-/// [FastCreditCardValidation] is used to validate a credit card number using Luhn's algorithm.
+/// [FastCreditCardValidation] is used to validate a credit card number using Luhn's algorithm
 class FastCreditCardValidation implements FastValidation {
   FastCreditCardValidation({this.customMessage});
 
@@ -746,7 +746,7 @@ class FastCreditCardValidation implements FastValidation {
   }
 }
 
-/// [FastGSTNumberValidation] is used to validate a GST number.
+/// [FastGSTNumberValidation] is used to validate a GST number
 class FastGSTNumberValidation implements FastValidation {
   FastGSTNumberValidation({this.customMessage});
 

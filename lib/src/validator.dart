@@ -20,8 +20,7 @@ class FastValidator {
       valid: true,
     );
 
-    bool isRequired =
-        validators.map((e) => e.runtimeType).contains(FastRequiredValidation);
+    bool isRequired = validators.map((e) => e.runtimeType).contains(FastRequiredValidation);
 
     if (!isRequired && (toValidate == null || toValidate.toString().isEmpty)) {
       validOutput.type = ResultType.validWithNoValue;
@@ -31,8 +30,7 @@ class FastValidator {
 
     if (validators.isNotEmpty) {
       for (final validator in validators) {
-        ValidationResult<T> result =
-            validator.validate<T>(toValidate, fieldName);
+        ValidationResult<T> result = validator.validate<T>(toValidate, fieldName);
 
         if (!result.valid) {
           validOutput = result;
@@ -53,14 +51,12 @@ class FastValidator {
   }) {
     ValidationAllResult<T> validAllOutput = ValidationAllResult<T>(
       result: toValidate,
-      errorMessage: null,
       type: ResultType.valid,
       valid: true,
-      allResult: [],
+      allErrorMessage: [],
     );
 
-    bool isRequired =
-        validators.map((e) => e.runtimeType).contains(FastRequiredValidation);
+    bool isRequired = validators.map((e) => e.runtimeType).contains(FastRequiredValidation);
 
     if (!isRequired && (toValidate == null || toValidate.toString().isEmpty)) {
       validAllOutput.type = ResultType.validWithNoValue;
@@ -72,25 +68,21 @@ class FastValidator {
 
     if (validators.isNotEmpty) {
       for (final validator in validators) {
-        ValidationResult<T> result =
-            validator.validate<T>(toValidate, fieldName);
+        ValidationResult<T> result = validator.validate<T>(toValidate, fieldName);
 
         if (!result.valid) {
+          // set the output to error at first-time (isEmpty check is done to do this step only once)
           if (results.isEmpty) {
-            validAllOutput = ValidationAllResult<T>(
-              result: toValidate,
-              errorMessage: result.errorMessage,
-              type: result.type,
-              valid: false,
-              allResult: [],
-            );
+            validAllOutput.valid = false;
+            validAllOutput.type = ResultType.invalid;
           }
+
           results.add(result);
         }
       }
     }
 
-    validAllOutput.allResult = results;
+    validAllOutput.allErrorMessage = results;
 
     return validAllOutput;
   }

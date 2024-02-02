@@ -37,19 +37,20 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('User email *'),
+              const Text('User email *', style: TextStyle(fontSize: 32)),
               SizedBox(
-                width: 200,
-                height: 40,
+                width: 350,
+                height: 100,
                 child: TextField(
                   controller: textController,
+                  style: const TextStyle(fontSize: 32),
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 6, vertical: 0),
                     border: OutlineInputBorder(borderSide: BorderSide(width: 3, color: Colors.green)),
                   ),
                 ),
               ),
-              Text(error ?? '', style: const TextStyle(color: Colors.red)),
+              Text(error ?? '', style: const TextStyle(color: Colors.red, fontSize: 24)),
             ],
           ),
         ),
@@ -59,17 +60,19 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _validate() {
-    String text = 'user@gmail..com';
+    setState(() => error = null); // reset the error message
+
+    String text = textController.text.trim(); // extract the text to be validated.
 
     ValidationResult result = FastValidator.validate(text,
         fieldName: 'Email',
-        validators: [FastRequiredValidation(), FastEmailValidation(customMessage: 'Invalid email')]);
+        validators: [FastRequiredValidation(), FastEmailValidation(customMessage: 'Invalid email')]); // validate
 
     debugPrint('Result: ${result.result}');
     debugPrint('Valid: ${result.valid}');
     debugPrint('Type: ${result.type}');
     debugPrint('ErrorMsg: ${result.errorMessage}');
 
-    if (!result.valid) setState(() => error = result.errorMessage);
+    if (!result.valid) setState(() => error = result.errorMessage); // update the error message
   }
 }

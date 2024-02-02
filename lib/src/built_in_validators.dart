@@ -15,8 +15,11 @@ class FastRequiredValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate == null || (dataToValidate.runtimeType == String && dataToValidate.toString().isEmpty)) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} is required';
+    if (dataToValidate == null ||
+        (dataToValidate.runtimeType == String &&
+            dataToValidate.toString().isEmpty)) {
+      errorMessage =
+          customMessage ?? '${fieldName ?? 'this field'} is required';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -44,8 +47,10 @@ class FastMinLengthValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || dataToValidate.toString().length < minLength) {
-      errorMessage = customMessage ?? 'minimum length of ${fieldName ?? 'this field'} must be $minLength';
+    if (dataToValidate.runtimeType != String ||
+        dataToValidate.toString().length < minLength) {
+      errorMessage = customMessage ??
+          'minimum length of ${fieldName ?? 'this field'} must be $minLength';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -73,8 +78,10 @@ class FastMaxLengthValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || dataToValidate.toString().length > maxLength) {
-      errorMessage = customMessage ?? 'maximum length of ${fieldName ?? 'this field'} must be $maxLength';
+    if (dataToValidate.runtimeType != String ||
+        dataToValidate.toString().length > maxLength) {
+      errorMessage = customMessage ??
+          'maximum length of ${fieldName ?? 'this field'} must be $maxLength';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -102,8 +109,10 @@ class FastExactLengthValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || dataToValidate.toString().length != length) {
-      errorMessage = customMessage ?? 'length of ${fieldName ?? 'this field'} must be $length';
+    if (dataToValidate.runtimeType != String ||
+        dataToValidate.toString().length != length) {
+      errorMessage = customMessage ??
+          'length of ${fieldName ?? 'this field'} must be $length';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -131,9 +140,11 @@ class FastMinValueValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if ((dataToValidate.runtimeType != int && dataToValidate.runtimeType != double) ||
+    if ((dataToValidate.runtimeType != int &&
+            dataToValidate.runtimeType != double) ||
         (dataToValidate as num) < minValue) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must be greater than $minValue';
+      errorMessage = customMessage ??
+          '${fieldName ?? 'this field'} must be greater than $minValue';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -161,9 +172,11 @@ class FastMaxValueValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if ((dataToValidate.runtimeType != int && dataToValidate.runtimeType != double) ||
+    if ((dataToValidate.runtimeType != int &&
+            dataToValidate.runtimeType != double) ||
         (dataToValidate as num) > maxValue) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must be lesser than $maxValue';
+      errorMessage = customMessage ??
+          '${fieldName ?? 'this field'} must be lesser than $maxValue';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -192,7 +205,8 @@ class FastExactValueValidation implements FastValidation {
     ResultType outputType = ResultType.valid;
 
     if (dataToValidate != value) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must be $value';
+      errorMessage =
+          customMessage ?? '${fieldName ?? 'this field'} must be $value';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -251,8 +265,10 @@ class FastEmailValidation implements FastValidation {
 
     RegExp emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
 
-    if (dataToValidate.runtimeType != String || !emailRegex.hasMatch(dataToValidate.toString())) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} is not a valid email';
+    if (dataToValidate.runtimeType != String ||
+        !emailRegex.hasMatch(dataToValidate.toString())) {
+      errorMessage =
+          customMessage ?? '${fieldName ?? 'this field'} is not a valid email';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -285,8 +301,10 @@ class FastUrlValidation implements FastValidation {
       multiLine: false,
     );
 
-    if (dataToValidate.runtimeType != String || !urlRegex.hasMatch(dataToValidate.toString())) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} is not a valid url';
+    if (dataToValidate.runtimeType != String ||
+        !urlRegex.hasMatch(dataToValidate.toString())) {
+      errorMessage =
+          customMessage ?? '${fieldName ?? 'this field'} is not a valid url';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -319,7 +337,8 @@ class FastDigitsOnlyValidation implements FastValidation {
       String digits = '1234567890';
       for (int i = 0; i < dataToValidate.toString().length; i++) {
         if (!digits.contains(dataToValidate.toString()[i])) {
-          errorMessage = customMessage ?? '${fieldName ?? 'this field'} must contain digits only';
+          errorMessage = customMessage ??
+              '${fieldName ?? 'this field'} must contain digits only';
           break;
         }
       }
@@ -357,7 +376,8 @@ class FastAlphabetsOnlyValidation implements FastValidation {
     RegExp alphabetPattern = RegExp(r'^[a-zA-Z]+$');
 
     if (!isString || !alphabetPattern.hasMatch(dataToValidate.toString())) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must contain alphabets only';
+      errorMessage = customMessage ??
+          '${fieldName ?? 'this field'} must contain alphabets only';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -389,7 +409,8 @@ class FastAlphaNumericOnlyValidation implements FastValidation {
     RegExp alphabetPattern = RegExp(r'^[a-zA-Z0-9]+$');
 
     if (!isString || !alphabetPattern.hasMatch(dataToValidate.toString())) {
-      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must contain alphanumerics only';
+      errorMessage = customMessage ??
+          '${fieldName ?? 'this field'} must contain alphanumerics only';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -422,8 +443,8 @@ class FastAllowedCharactersValidation implements FastValidation {
 
     bool isString = dataToValidate.runtimeType == String;
 
-    String error =
-        customMessage ?? '${fieldName ?? 'this field'} must contain only the following characters - $allowedCharacters';
+    String error = customMessage ??
+        '${fieldName ?? 'this field'} must contain only the following characters - $allowedCharacters';
 
     if (!isString) {
       errorMessage = error;
@@ -463,7 +484,8 @@ class FastRegexValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || !regex.hasMatch(dataToValidate.toString())) {
+    if (dataToValidate.runtimeType != String ||
+        !regex.hasMatch(dataToValidate.toString())) {
       errorMessage = customMessage ?? '${fieldName ?? 'this field'} is invalid';
       valid = false;
       outputType = ResultType.invalid;
@@ -517,23 +539,29 @@ class FastPasswordValidation implements FastValidation {
     bool isString = dataToValidate.runtimeType == String;
 
     if (!isString) {
-      errorMessage = generalInvalidMessage ?? '${fieldName ?? 'this field'} must be a valid password';
+      errorMessage = generalInvalidMessage ??
+          '${fieldName ?? 'this field'} must be a valid password';
     } else {
-      String? specialCharCondition = _checkSpecialChar(dataToValidate.toString(), fieldName);
+      String? specialCharCondition =
+          _checkSpecialChar(dataToValidate.toString(), fieldName);
       if (specialCharCondition != null) errorMessage = specialCharCondition;
 
-      String? checkNumCondition = _checkNumber(dataToValidate.toString(), fieldName);
+      String? checkNumCondition =
+          _checkNumber(dataToValidate.toString(), fieldName);
       if (checkNumCondition != null) errorMessage = checkNumCondition;
 
-      String? upperCaseCondition = _checkUppercase(dataToValidate.toString(), fieldName);
+      String? upperCaseCondition =
+          _checkUppercase(dataToValidate.toString(), fieldName);
       if (upperCaseCondition != null) errorMessage = upperCaseCondition;
 
-      String? lowercaseCondition = _checkLowercase(dataToValidate.toString(), fieldName);
+      String? lowercaseCondition =
+          _checkLowercase(dataToValidate.toString(), fieldName);
       if (lowercaseCondition != null) {
         errorMessage = lowercaseCondition;
       }
 
-      String? minLenCondition = _checkMinLength(dataToValidate.toString(), fieldName);
+      String? minLenCondition =
+          _checkMinLength(dataToValidate.toString(), fieldName);
       if (minLenCondition != null) errorMessage = minLenCondition;
     }
 
@@ -553,7 +581,8 @@ class FastPasswordValidation implements FastValidation {
   String? _checkMinLength(String data, String? fieldName) {
     if (data.length >= minLength) return null;
 
-    return minLengthMessage ?? 'minimum length of ${fieldName ?? 'this field'} must be $minLength';
+    return minLengthMessage ??
+        'minimum length of ${fieldName ?? 'this field'} must be $minLength';
   }
 
   String? _checkUppercase(String data, String? fieldName) {
@@ -561,12 +590,14 @@ class FastPasswordValidation implements FastValidation {
 
     RegExp uppercasePattern = RegExp(r'^[A-Z]+$');
     for (int i = 0; i < data.length; i++) {
-      if (uppercasePattern.hasMatch(data[i]) && data[i] == data[i].toUpperCase()) {
+      if (uppercasePattern.hasMatch(data[i]) &&
+          data[i] == data[i].toUpperCase()) {
         return null;
       }
     }
 
-    return uppercaseMessage ?? '${fieldName ?? 'this field'} must contain at least one uppercase letter';
+    return uppercaseMessage ??
+        '${fieldName ?? 'this field'} must contain at least one uppercase letter';
   }
 
   String? _checkLowercase(String data, String? fieldName) {
@@ -574,12 +605,14 @@ class FastPasswordValidation implements FastValidation {
 
     RegExp lowercasePattern = RegExp(r'^[a-z]+$');
     for (int i = 0; i < data.length; i++) {
-      if (lowercasePattern.hasMatch(data[i]) && data[i] == data[i].toLowerCase()) {
+      if (lowercasePattern.hasMatch(data[i]) &&
+          data[i] == data[i].toLowerCase()) {
         return null;
       }
     }
 
-    return lowercaseMessage ?? '${fieldName ?? 'this field'} must contain at least one lowercase letter';
+    return lowercaseMessage ??
+        '${fieldName ?? 'this field'} must contain at least one lowercase letter';
   }
 
   String? _checkSpecialChar(String data, String? fieldName) {
@@ -592,7 +625,8 @@ class FastPasswordValidation implements FastValidation {
       }
     }
 
-    return specialCharacterMessage ?? '${fieldName ?? 'this field'} must contain at least one special character';
+    return specialCharacterMessage ??
+        '${fieldName ?? 'this field'} must contain at least one special character';
   }
 
   String? _checkNumber(String data, String? fieldName) {
@@ -601,7 +635,8 @@ class FastPasswordValidation implements FastValidation {
     RegExp numberPattern = RegExp(r'\d');
     if (numberPattern.hasMatch(data)) return null;
 
-    return numberMessage ?? '${fieldName ?? 'this field'} must contain at least one number';
+    return numberMessage ??
+        '${fieldName ?? 'this field'} must contain at least one number';
   }
 }
 
@@ -636,7 +671,8 @@ class FastDateValidation implements FastValidation {
     if (dataToValidate.runtimeType != DateTime) {
       errorMessage = generalError ?? '${fieldName ?? 'this field'} is invalid';
     } else {
-      String? maxDateError = _checkMaxDateValidation(dataToValidate as DateTime, fieldName);
+      String? maxDateError =
+          _checkMaxDateValidation(dataToValidate as DateTime, fieldName);
       if (maxDateError != null) errorMessage = maxDateError;
 
       String? minDateError = _checkMinDateValidation(dataToValidate, fieldName);
@@ -673,7 +709,8 @@ class FastDateValidation implements FastValidation {
       return null;
     }
 
-    return equalsError ?? '${fieldName ?? 'this field'} must be equal to the given date';
+    return equalsError ??
+        '${fieldName ?? 'this field'} must be equal to the given date';
   }
 
   String? _checkMinDateValidation(DateTime date, String? fieldName) {
@@ -681,7 +718,8 @@ class FastDateValidation implements FastValidation {
 
     if (date.isAfter(minimumDate!)) return null;
 
-    return minError ?? '${fieldName ?? 'this field'} must be a date after the given date';
+    return minError ??
+        '${fieldName ?? 'this field'} must be a date after the given date';
   }
 
   String? _checkMaxDateValidation(DateTime date, String? fieldName) {
@@ -689,7 +727,8 @@ class FastDateValidation implements FastValidation {
 
     if (date.isBefore(maximumDate!)) return null;
 
-    return maxError ?? '${fieldName ?? 'this field'} must be a date before the given date';
+    return maxError ??
+        '${fieldName ?? 'this field'} must be a date before the given date';
   }
 }
 
@@ -706,8 +745,10 @@ class FastCreditCardValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || !_isValidCreditCard(dataToValidate.toString())) {
-      errorMessage = customMessage ?? '${fieldName ?? 'credit card'} is invalid';
+    if (dataToValidate.runtimeType != String ||
+        !_isValidCreditCard(dataToValidate.toString())) {
+      errorMessage =
+          customMessage ?? '${fieldName ?? 'credit card'} is invalid';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -759,7 +800,8 @@ class FastGSTNumberValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || !_isValidGST(dataToValidate.toString())) {
+    if (dataToValidate.runtimeType != String ||
+        !_isValidGST(dataToValidate.toString())) {
       errorMessage = customMessage ?? '${fieldName ?? 'GST number'} is invalid';
       valid = false;
       outputType = ResultType.invalid;

@@ -45,16 +45,20 @@ class _MyAppState extends State<MyApp> {
                   controller: textController,
                   style: const TextStyle(fontSize: 32),
                   decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 6, vertical: 0),
-                    border: OutlineInputBorder(borderSide: BorderSide(width: 3, color: Colors.green)),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 6, vertical: 0),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(width: 3, color: Colors.green)),
                   ),
                 ),
               ),
-              Text(error ?? '', style: const TextStyle(color: Colors.red, fontSize: 24)),
+              Text(error ?? '',
+                  style: const TextStyle(color: Colors.red, fontSize: 24)),
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(onPressed: _validate, child: const Text('Validate')),
+        floatingActionButton: FloatingActionButton(
+            onPressed: _validate, child: const Text('Validate')),
       ),
     );
   }
@@ -62,17 +66,22 @@ class _MyAppState extends State<MyApp> {
   void _validate() {
     setState(() => error = null); // reset the error message
 
-    String text = textController.text.trim(); // extract the text to be validated.
+    String text =
+        textController.text.trim(); // extract the text to be validated.
 
     ValidationResult result = FastValidator.validate(text,
         fieldName: 'Email',
-        validators: [FastRequiredValidation(), FastEmailValidation(customMessage: 'Invalid email')]); // validate
+        validators: [
+          FastRequiredValidation(),
+          FastEmailValidation(customMessage: 'Invalid email')
+        ]); // validate
 
     debugPrint('Result: ${result.result}');
     debugPrint('Valid: ${result.valid}');
     debugPrint('Type: ${result.type}');
     debugPrint('ErrorMsg: ${result.errorMessage}');
 
-    if (!result.valid) setState(() => error = result.errorMessage); // update the error message
+    if (!result.valid)
+      setState(() => error = result.errorMessage); // update the error message
   }
 }

@@ -9,3 +9,7 @@
 ## 0.1.2
 
 * Added README and Example.
+
+## 0.1.3
+
+* Updated version badge.

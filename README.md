@@ -76,27 +76,28 @@ if you want to get the all the errors from the list of validations given. **Fast
 ## Build in validators
 The below given are the ready-made validators you can use. Most of the validators will have optional arguments to customize the validation.  
 
-| Validator                  | Description              |
-|----------------------------|--------------------------|
-| FastRequiredValidation()   | used to do required validation on a filed. Null and empty fields are also considered as invalid |
-| FastMinLengthValidation()  | used to validate minimum length of a string |
-| FastMaxLengthValidation()  | used to validate maximum length of a string|
-| FastExactLengthValidation() | used to validate exact length of a string|
-| FastMinValueValidation()   | used to validate minimum value of a number|
-| FastMaxValueValidation()   | used to validate maximum value of a number |
-| FastExactValueValidation()  | used to validate exact value of given data|
-| FastTypeValidation()  | used to validate the datatype of given data |
-| FastEmailValidation()    | used to validate an email|
-| FastUrlValidation()    | used to validate an URL  |
-| FastDigitsOnlyValidation()    |used to validate whether a string contains numbers alone |
-| FastAlphabetsOnlyValidation()    | used to validate whether a string contains alphabets alone |
-| FastAlphaNumericOnlyValidation()    | used to validate whether a string contains alphabets and numbers alone |
-| FastAllowedCharactersValidation()    | used to validate whether a string contains the allowed characters alone |
-| FastRegexValidation()    | used to validate a String against a RegExp |
-| FastPasswordValidation()    | used to validate a password field |
-| FastDateValidation()    | used to validate a date field |
-| FastCreditCardValidation()    | used to validate a credit card number using Luhn's algorithm |
-| FastGSTNumberValidation()    | used to validate a GST number |
+| Validator                         | Description                                                                                     |
+|-----------------------------------|-------------------------------------------------------------------------------------------------|
+| FastRequiredValidation()          | used to do required validation on a filed. Null and empty fields are also considered as invalid |
+| FastMinLengthValidation()         | used to validate minimum length of a string                                                     |
+| FastMaxLengthValidation()         | used to validate maximum length of a string                                                     |
+| FastExactLengthValidation()       | used to validate exact length of a string                                                       |
+| FastMinValueValidation()          | used to validate minimum value of a number                                                      |
+| FastMaxValueValidation()          | used to validate maximum value of a number                                                      |
+| FastExactValueValidation()        | used to validate exact value of given data                                                      |
+| FastTypeValidation()              | used to validate the datatype of given data                                                     |
+| FastEmailValidation()             | used to validate an email                                                                       |
+| FastUrlValidation()               | used to validate an URL                                                                         |
+| FastDigitsOnlyValidation()        | used to validate whether a string contains numbers alone                                        |
+| FastAlphabetsOnlyValidation()     | used to validate whether a string contains alphabets alone                                      |
+| FastAlphaNumericOnlyValidation()  | used to validate whether a string contains alphabets and numbers alone                          |
+| FastAllowedCharactersValidation() | used to validate whether a string contains the allowed characters alone                         |
+| FastRegexValidation()             | used to validate a String against a RegExp                                                      |
+| FastPasswordValidation()          | used to validate a password field                                                               |
+| FastDateValidation()              | used to validate a date field                                                                   |
+| FastCreditCardValidation()        | used to validate a credit card number using Luhn's algorithm                                    |
+| FastGSTNumberValidation()         | used to validate a GST number                                                                   |
+| FastPhoneNumberValidation()       | used to validate a phone number                                                                 |
 
 ## Custom validator
 

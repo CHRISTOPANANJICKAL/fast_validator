@@ -822,3 +822,40 @@ class FastGSTNumberValidation implements FastValidation {
     return RegExp(regex).hasMatch(gst);
   }
 }
+
+/// [FastPhoneNumberValidation] is used to validate a Phone number
+class FastPhoneNumberValidation implements FastValidation {
+  FastPhoneNumberValidation({this.customMessage});
+
+  @override
+  String? customMessage;
+
+  @override
+  ValidationResult<T> validate<T>(T dataToValidate, String? fieldName) {
+    String? errorMessage;
+    bool valid = true;
+    ResultType outputType = ResultType.valid;
+
+    if (dataToValidate.runtimeType != String ||
+        !_isValidPhone(dataToValidate.toString())) {
+      errorMessage =
+          customMessage ?? '${fieldName ?? 'phone number'} is invalid';
+      valid = false;
+      outputType = ResultType.invalid;
+    }
+
+    return ValidationResult<T>(
+      errorMessage: errorMessage,
+      type: outputType,
+      valid: valid,
+      result: dataToValidate,
+    );
+  }
+
+  bool _isValidPhone(String gst) {
+    if (gst.length != 15) return false;
+    String regex = '^\\+?[1-9][0-9]{7,14}\$';
+
+    return RegExp(regex).hasMatch(gst);
+  }
+}

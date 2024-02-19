@@ -13,3 +13,7 @@
 ## 0.1.3
 
 * Updated version badge.
+
+## 0.1.4
+
+* Added build in validator for phone number.

@@ -17,3 +17,7 @@
 ## 0.1.4
 
 * Added build in validator for phone number.
+
+## 0.1.5
+
+* fixed issue in phone number validator.

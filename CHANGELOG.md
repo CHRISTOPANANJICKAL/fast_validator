@@ -20,12 +20,16 @@
 
 ## 0.1.5
 
-* fixed issue in phone number validator.
+* Fixed issue in phone number validator.
 
 * ## 0.1.6
 
-* added support for list and map data types in builtin validators.
+* Added support for list and map data types in builtin validators.
 
 * ## 0.1.7
 
-* fixed length validation issue in required validation.
+* Fixed length validation issue in required validation.
+ 
+* ## 0.1.8
+
+* Fixed field name misplacing issue in length validation

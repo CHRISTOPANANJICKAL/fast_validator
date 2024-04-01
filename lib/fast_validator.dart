@@ -1,4 +1,4 @@
-library fast_cached_network_image;
+library fast_validator;
 
 export 'src/built_in_validators.dart';
 export 'src/validator.dart';

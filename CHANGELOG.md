@@ -25,3 +25,7 @@
 * ## 0.1.6
 
 * added support for list and map data types in builtin validators.
+
+* ## 0.1.7
+
+* fixed length validation issue in required validation.

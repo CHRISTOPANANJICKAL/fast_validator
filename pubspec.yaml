@@ -9,7 +9,8 @@ issue_tracker: https://github.com/CHRISTOPANANJICKAL/fast_validator/issues
 topics:
   - validation
   - forms
-  - text field
+  - text
+  - field
   - error
   - validate
   - validator

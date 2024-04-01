@@ -33,3 +33,7 @@
 * ## 0.1.8
 
 * Fixed field name misplacing issue in length validation
+
+* ## 0.1.9
+
+* Formatted code

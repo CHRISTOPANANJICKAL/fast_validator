@@ -37,3 +37,7 @@
 * ## 0.1.9
 
 * Formatted code
+
+* ## 0.2.0
+
+* Added errorStringDate param to date validation so that the date can be shown in the error string

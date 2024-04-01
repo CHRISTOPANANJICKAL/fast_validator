@@ -47,7 +47,7 @@ class FastMinLengthValidation implements FastValidation {
     ResultType outputType = ResultType.valid;
 
     if (_getLength(dataToValidate) == null || _getLength(dataToValidate)! < minLength) {
-      errorMessage = customMessage ?? 'minimum length of ${fieldName ?? 'this field'} must be $minLength';
+      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must have minimum length $minLength';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -76,7 +76,7 @@ class FastMaxLengthValidation implements FastValidation {
     ResultType outputType = ResultType.valid;
 
     if (_getLength(dataToValidate) == null || _getLength(dataToValidate)! > maxLength) {
-      errorMessage = customMessage ?? 'maximum length of ${fieldName ?? 'this field'} must be $maxLength';
+      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must have maximum length $maxLength';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -105,7 +105,7 @@ class FastExactLengthValidation implements FastValidation {
     ResultType outputType = ResultType.valid;
 
     if (_getLength(dataToValidate) != length) {
-      errorMessage = customMessage ?? 'length of ${fieldName ?? 'this field'} must be $length';
+      errorMessage = customMessage ?? '${fieldName ?? 'this field'} must have length $length';
       valid = false;
       outputType = ResultType.invalid;
     }
@@ -555,7 +555,7 @@ class FastPasswordValidation implements FastValidation {
   String? _checkMinLength(String data, String? fieldName) {
     if (data.length >= minLength) return null;
 
-    return minLengthMessage ?? 'minimum length of ${fieldName ?? 'this field'} must be $minLength';
+    return minLengthMessage ?? '${fieldName ?? 'this field'} must have minimum length $minLength';
   }
 
   String? _checkUppercase(String data, String? fieldName) {

@@ -15,7 +15,7 @@ class FastRequiredValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate == null || (dataToValidate.runtimeType == String && dataToValidate.toString().isEmpty)) {
+    if (dataToValidate == null || _getLength(dataToValidate) == null || _getLength(dataToValidate)! <= 0) {
       errorMessage = customMessage ?? '${fieldName ?? 'this field'} is required';
       valid = false;
       outputType = ResultType.invalid;
@@ -44,7 +44,7 @@ class FastMinLengthValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || dataToValidate.toString().length < minLength) {
+    if (_getLength(dataToValidate) == null || _getLength(dataToValidate)! < minLength) {
       errorMessage = customMessage ?? 'minimum length of ${fieldName ?? 'this field'} must be $minLength';
       valid = false;
       outputType = ResultType.invalid;
@@ -73,7 +73,7 @@ class FastMaxLengthValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || dataToValidate.toString().length > maxLength) {
+    if (_getLength(dataToValidate) == null || _getLength(dataToValidate)! > maxLength) {
       errorMessage = customMessage ?? 'maximum length of ${fieldName ?? 'this field'} must be $maxLength';
       valid = false;
       outputType = ResultType.invalid;
@@ -102,7 +102,7 @@ class FastExactLengthValidation implements FastValidation {
     bool valid = true;
     ResultType outputType = ResultType.valid;
 
-    if (dataToValidate.runtimeType != String || dataToValidate.toString().length != length) {
+    if (_getLength(dataToValidate) != length) {
       errorMessage = customMessage ?? 'length of ${fieldName ?? 'this field'} must be $length';
       valid = false;
       outputType = ResultType.invalid;
@@ -813,4 +813,10 @@ class FastPhoneNumberValidation implements FastValidation {
 
     return RegExp(regex).hasMatch(gst);
   }
+}
+
+int? _getLength(dynamic a) {
+  if (a is String || a is List || a is Map) return a.length;
+
+  return null;
 }

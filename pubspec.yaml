@@ -7,13 +7,15 @@ repository: https://github.com/CHRISTOPANANJICKAL/fast_validator
 issue_tracker: https://github.com/CHRISTOPANANJICKAL/fast_validator/issues
 
 topics:
-  - cache
-  - image
-  - photo
-  - download
-  - storage
-  - internet
+  - validation
+  - forms
+  - text field
+  - error
+  - validate
+  - validator
+  - data
   - network
+  - schema
 
 
 environment:

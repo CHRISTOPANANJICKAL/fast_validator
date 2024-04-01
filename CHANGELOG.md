@@ -21,3 +21,7 @@
 ## 0.1.5
 
 * fixed issue in phone number validator.
+
+* ## 0.1.6
+
+* added support for list and map data types in builtin validators.

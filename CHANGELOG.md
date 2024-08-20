@@ -41,3 +41,7 @@
 * ## 0.2.0
 
 * Added errorStringDate param to date validation so that the date can be shown in the error string
+
+* ## 0.3.0
+
+* Updated text message of FastMinValueValidation and FastMaxValueValidation

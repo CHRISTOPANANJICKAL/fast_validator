@@ -1,5 +1,4 @@
 import 'package:fast_validator/fast_validator.dart';
-import 'package:fast_validator/src/models/validation_result.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
